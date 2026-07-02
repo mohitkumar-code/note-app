@@ -3,12 +3,19 @@ import { Notecard } from '../components/Notecard'
 
 const notecode = () => {
 
+    
+
+    const [title, setTitle] = useState('')
+
     const submitHandler = (e)=>{
         e.preventDefault()
         console.log("Form Submitted")
+
+        setTitle('')
+        
     }
 
-    const [title, settitle] = useState('')
+
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-3xl mx-auto">
@@ -38,7 +45,7 @@ const notecode = () => {
         </form>
 
         <Notecard />
-        
+
       </div>
     </div>
   )
