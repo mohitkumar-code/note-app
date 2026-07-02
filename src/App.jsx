@@ -1,5 +1,5 @@
 import React from 'react'
-import Notecode from '../data/notecode'
+import Notecode from './data/notecode'
 
 const App = () => {
   return (
