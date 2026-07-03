@@ -8,15 +8,23 @@ const notecode = () => {
     const [title, setTitle] = useState('')
     const [details, setDetails] = useState('')
 
+    const [task, setTask] = useState([])
+
     const submitHandler = (e)=>{
         e.preventDefault()
-        console.log(title, details)
+        
+        const copyTask= [...task];
+
+        copyTask.push({title, details})
+        
+        setTask(copyTask)
+        console.log(task)
+
 
         setTitle('')
         setDetails('')
         
     }
-
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
@@ -49,7 +57,7 @@ const notecode = () => {
             }}
           ></textarea>
 
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-md transition">
+          <button className="bg-blue-500 hover:bg-blue-600 active:scale-95 text-white px-5 py-2 rounded-md transition">
             Add Note
           </button>
         </form>
