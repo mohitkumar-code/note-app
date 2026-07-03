@@ -1,7 +1,6 @@
 import React from 'react'
-import { task } from '../data/notecode.jsx'
 
-export const Notecard = () => {
+export const Notecard = ({ task }) => {
   return (
     <div>
         <h2 className="text-2xl font-semibold mb-4">Your Notes</h2>
@@ -10,13 +9,13 @@ export const Notecard = () => {
 
           {task.map(function(elem, idx){
 
-            return <div className="bg-white rounded-lg shadow p-5">
+            return <div key={idx} className=" bg-cover bg-[url('https://img.favpng.com/22/19/18/paper-post-it-note-square-rectangle-picture-frames-png-favpng-1AXk0W5UdYrYzJqKdNSPCEuW5.jpg')] rounded-lg shadow p-5">
             <h3 className="text-xl font-semibold mb-2">
-              React Basics
+              {elem.title}
             </h3>
 
             <p className="text-gray-600 mb-4">
-              Learn components, props and state today.
+              {elem.details}
             </p>
 
             <button className="bg-red-500 active:scale-95 hover:bg-red-600 text-white px-4 py-2 rounded">
