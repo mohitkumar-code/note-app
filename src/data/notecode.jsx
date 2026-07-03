@@ -62,7 +62,7 @@ const notecode = () => {
           </button>
         </form>
 
-        <Notecard task={task} />
+        <Notecard task={task} setTask={setTask}  />
 
       </div>
     </div>

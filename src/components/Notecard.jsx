@@ -1,6 +1,15 @@
 import React from 'react'
 
-export const Notecard = ({ task }) => {
+export const Notecard = ({ task, setTask }) => {
+
+  const deleteNote = (idx)=>{
+    const copyTask = [...task];
+
+    copyTask.splice(idx, 1);
+
+    setTask(copyTask);
+
+  }
   return (
     <div>
         <h2 className="text-2xl font-semibold mb-4">Your Notes</h2>
@@ -9,7 +18,7 @@ export const Notecard = ({ task }) => {
 
           {task.map(function(elem, idx){
 
-            return <div key={idx} className=" bg-cover bg-[url('https://img.favpng.com/22/19/18/paper-post-it-note-square-rectangle-picture-frames-png-favpng-1AXk0W5UdYrYzJqKdNSPCEuW5.jpg')] rounded-lg shadow p-5">
+            return <div key={idx} className="bg-cover bg-[url('https://img.favpng.com/22/19/18/paper-post-it-note-square-rectangle-picture-frames-png-favpng-1AXk0W5UdYrYzJqKdNSPCEuW5.jpg')] rounded-lg shadow p-5">
             <h3 className="text-xl font-semibold mb-2">
               {elem.title}
             </h3>
@@ -18,7 +27,9 @@ export const Notecard = ({ task }) => {
               {elem.details}
             </p>
 
-            <button className="bg-red-500 active:scale-95 hover:bg-red-600 text-white px-4 py-2 rounded">
+            <button onClick={()=>{
+              deleteNote(idx)
+            }} className="bg-red-500 active:scale-95 hover:bg-red-600 text-white px-4 py-2 rounded">
               Delete
             </button>
           </div>
